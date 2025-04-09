@@ -1,6 +1,17 @@
 # dotfiles
 Simple dotfiles repo. Copy .bash_config into $HOME and make sure all required packages are installed.
 
+# Setup
+Clone this repo and copy the `.bash_config` dir into your home. Next paste the following snippet into your `.bashrc`
+```bash
+# Load modular config from ~/.bash_config
+if [ -d "$HOME/.bash_config" ]; then
+  for config_file in "$HOME/.bash_config"/*.sh; do
+    [ -r "$config_file" ] && source "$config_file"
+  done
+fi
+```
+
 # Modules
 This section explains modules
 
@@ -24,8 +35,6 @@ Setups starship as prompt to the session.
 
 Required packages are
 - Starship
-
-
 
 # Used packages
 fzf
