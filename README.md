@@ -37,7 +37,8 @@ Required packages are
 - Starship
 
 # Used packages
-fzf
-fd-find
-starship
-conda
+- [fzf](https://github.com/junegunn/fzf): should be installed using binaries in $HOME/.fzf
+- [fd-find](https://github.com/sharkdp/fd)
+- [starship](https://starship.rs/guide/#%F0%9F%9A%80-installation)
+- [conda](https://www.anaconda.com/docs/getting-started/miniconda/install)
+
