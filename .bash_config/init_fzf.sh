@@ -7,16 +7,20 @@ if [ -f ~/.fzf.bash ]; then
   source ~/.fzf.bash
 fi
 
+# Detect if we are using fd or fdfind
+if command -v fd >/dev/null 2>&1; then
+  export FD_CMD="fd"
+elif command -v fdfind >/dev/null 2>&1; then
+  export FD_CMD="fdfind"
+else
+  echo "⚠️  Neither 'fd' or 'fdfind' was found. FZF shortcuts wont work."
+  return 0
+fi
+
 # If we have fzf, setup some custom settings
 if command -v fzf &> /dev/null; then
   export FZF_DEFAULT_OPTS="--height 100%"
-
-  # Check if fd exists before configuring it
-  if command -v fd &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='fd --type file'
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_ALT_C_COMMAND="fd --type directory"
-  else
-    echo "⚠  'fd' is not installed. FZF will use default config."
-  fi
+  export FZF_DEFAULT_COMMAND='$FD_CMD --type file'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FD_CMD --type directory"
 fi
