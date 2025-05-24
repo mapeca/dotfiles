@@ -6,11 +6,21 @@ Clone this repo and copy the `.bash_config` dir into your home. Next paste the f
 ```bash
 # Load modular config from ~/.bash_config
 if [ -d "$HOME/.bash_config" ]; then
-  for config_file in "$HOME/.bash_config"/*.sh; do
-    [ -r "$config_file" ] && source "$config_file"
-  done
+  for f in ~/.bash_profile_*; do source $f; done
 fi
 ```
+
+```bash
+# Create link to cloned config
+ln -s $(pwd)/.bash_config ~/.bash_config
+ln -s $(pwd)/.config ~/.config
+```
+
+Or use auto script
+```bash
+bash setup.sh
+```
+
 
 # Modules
 This section explains modules
@@ -41,4 +51,5 @@ Required packages are
 - [fd-find](https://github.com/sharkdp/fd)
 - [starship](https://starship.rs/guide/#%F0%9F%9A%80-installation)
 - [conda](https://www.anaconda.com/docs/getting-started/miniconda/install)
+
 

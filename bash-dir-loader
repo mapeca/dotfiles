@@ -1,0 +1,4 @@
+# Load modular config from ~/.bash_config
+if [ -d "$HOME/.bash_config" ]; then
+  for f in ~/.bash_config/*; do source $f; done
+fi
