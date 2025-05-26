@@ -10,3 +10,8 @@ elif command -v xsel &> /dev/null; then
 else
   echo "⚠️  No clipboard tool found for alias 'cb'. Install xclip, xsel, or pbcopy."
 fi
+
+# Alias ls
+alias l='ls -alF'
+alias la='ls -la'
+alias ll='ls -l'
