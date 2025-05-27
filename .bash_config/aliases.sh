@@ -17,3 +17,8 @@ fi
 alias l='ls -alF'
 alias la='ls -la'
 alias ll='ls -l'
+
+# Directory movement
+alias ..="cd .."
+alias ...="cd ../.."
+
